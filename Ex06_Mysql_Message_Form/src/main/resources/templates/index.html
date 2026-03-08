@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Ex06 - Messages</title>
+</head>
+<body>
+<h1>Ajouter un message</h1>
+
+<form method="post" action="/messages">
+    <input type="text" name="content" placeholder="Écris un message..." required />
+    <button type="submit">Envoyer</button>
+</form>
+
+<hr/>
+
+<h2>Messages enregistrés</h2>
+<ul>
+    <li th:each="m : ${messages}">
+        <span th:text="${m.id}"></span> -
+        <span th:text="${m.content}"></span> (
+        <span th:text="${m.createdAt}"></span>)
+    </li>
+</ul>
+
+</body>
+</html>
